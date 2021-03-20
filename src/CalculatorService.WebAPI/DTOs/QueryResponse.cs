@@ -13,5 +13,6 @@ namespace CalculatorServices.WebAPI.DTOs
         public string OperationType { get; set; } = "";
         public string Calculation { get; set; } = "";
         public DateTime DateTime { get; set; }
+        public int TrackId { get; set; }
     }
 }
