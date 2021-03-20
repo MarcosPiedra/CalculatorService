@@ -14,7 +14,9 @@ namespace CalculatorService.Console
 {
     class Program
     {
-        private static string urlBase = "http://localhost:5001/api/v1/calculator/";
+        private static string Host => Environment.GetEnvironmentVariable("API_HOST") ?? "localhost:5001";
+        private static string UrlBase => $"http://{Host}/api/v1/calculator/";
+
         private static Regex validInputRegEx = new Regex("[^a-zA-Z0-9,]", RegexOptions.Compiled);
 
         static async Task Main(string[] args)
@@ -148,7 +150,7 @@ namespace CalculatorService.Console
             WriteLine(@$" {"G".PadRight(padRight, '.')} Query");
             WriteLine(@$" {"O".PadRight(padRight, '.')} Get all operations");
             WriteLine(@$" {"U".PadRight(padRight, '.')} Using a traking Id");
-            WriteLine(@$" {"R".PadRight(padRight, '.')} Remove current a traking Id");
+            WriteLine(@$" {"R".PadRight(padRight, '.')} Reset traking Id");
             WriteLine(@$" {"I".PadRight(padRight, '.')} This operation list");
             WriteLine(@$" {"E (or CTRL+C)".PadRight(padRight, '.')} Exit");
         }
@@ -208,7 +210,7 @@ namespace CalculatorService.Console
                 var httpRequestMessage = new HttpRequestMessage
                 {
                     Method = HttpMethod.Post,
-                    RequestUri = new Uri($"{urlBase}{method}"),
+                    RequestUri = new Uri($"{UrlBase}{method}"),
                     Content = data
                 };
                 httpRequestMessage.Headers.Add(HttpRequestHeader.Accept.ToString(), "application/json");
@@ -248,7 +250,7 @@ namespace CalculatorService.Console
                 var httpRequestMessage = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
-                    RequestUri = new Uri($"{urlBase}{method}")
+                    RequestUri = new Uri($"{UrlBase}{method}")
                 };
                 httpRequestMessage.Headers.Add(HttpRequestHeader.Accept.ToString(), "application/json");
 

@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+    test:
+        build:
+          dockerfile: Dockerfile-test  
+          context: .          
+
+    api:
+        build:
+          dockerfile: Dockerfile-api  
+          context: .     
+        ports:
+          - "5001:5001"
+
+    cli:
+        build:
+          dockerfile: Dockerfile-cli           
+          context: .                    
+        environment:
+            - API_HOST=172.17.0.1:5001
+        depends_on:
+            - api

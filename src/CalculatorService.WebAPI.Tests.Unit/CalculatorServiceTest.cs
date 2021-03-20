@@ -64,8 +64,8 @@ namespace CalculatorServices.WebAPI.Tests.Unit
             stubDb.Verify(x => x.Add(It.IsAny<Operation>()), Times.Once);
             Assert.Single(spyList);
             Assert.Equal(spyList[0].TrackId, trakedId);
-            Assert.Equal(spyList[0].Calculation, divService.GetServiceName());
-            Assert.Equal(spyList[0].OperationType, divService.GetDescription(divParams, result));
+            Assert.Equal(spyList[0].Calculation, divService.GetDescription(divParams, result));
+            Assert.Equal(spyList[0].OperationType, divService.GetServiceName());
         }
 
         //...

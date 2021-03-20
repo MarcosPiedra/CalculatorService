@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+WORKDIR /app
+COPY . /app
+RUN dotnet restore
+RUN dotnet test 
+ENTRYPOINT ["dotnet", "test", "--logger:trx"]
