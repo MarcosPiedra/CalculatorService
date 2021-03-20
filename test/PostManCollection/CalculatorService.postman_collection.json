@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3b15dbbb-6d5e-471a-868c-39dff81f5c0d",
+		"_postman_id": "ba537177-a21d-4576-a0f6-5280688e30ef",
 		"name": "CalculatorService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -41,12 +41,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/div",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/div",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -90,12 +88,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/div",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/div",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -148,12 +144,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/div",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/div",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -198,12 +192,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/mult",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/mult",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -247,12 +239,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/mult",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/mult",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -303,12 +293,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/mult",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/mult",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -353,12 +341,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/sqrt",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/sqrt",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -402,12 +388,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/sqrt",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/sqrt",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -458,12 +442,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/sqrt",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/sqrt",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -508,12 +490,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/sub",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/sub",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -557,12 +537,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/sub",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/sub",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -613,12 +591,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/sub",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/sub",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -663,12 +639,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/add",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/add",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -719,12 +693,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/add",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/add",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -768,12 +740,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/add",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/add",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
@@ -817,12 +787,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/query",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/calculator/query",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "5001",
 					"path": [
 						"api",
 						"v1",
