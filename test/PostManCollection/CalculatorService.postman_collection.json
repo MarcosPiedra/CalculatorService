@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "3b15dbbb-6d5e-471a-868c-39dff81f5c0d",
+		"name": "CalculatorService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Divide - Response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.quotient).to.be.a('number')\r",
+							"    pm.expect(responseJson.remainder).to.be.a('number');      \r",
+							"    pm.expect(responseJson.quotient).to.eql(2);\r",
+							"    pm.expect(responseJson.remainder).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Dividend\": 10,\r\n  \"Divisor\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/div",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"div"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Divide - Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 400\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check errors properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.errors).to.have.lengthOf(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Dividend\": 10000,\r\n  \"Divisor\": 10000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/div",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"div"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Divide - Tracked and response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.quotient).to.be.a('number');\r",
+							"    pm.expect(responseJson.remainder).to.be.a('number');      \r",
+							"    pm.expect(responseJson.quotient).to.eql(2);\r",
+							"    pm.expect(responseJson.remainder).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Evi-Tracking-Id",
+						"value": "123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Dividend\": 10,\r\n  \"Divisor\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/div",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"div"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiplication - Response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.product).to.be.a('number');\r",
+							"    pm.expect(responseJson.product).to.eql(24);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Factors\": [\r\n        1,\r\n        2,\r\n        3,\r\n        4\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/mult",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"mult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiplication - Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 400\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check errors properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.errors).to.have.lengthOf(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Factors\": [\r\n        1,\r\n        2,\r\n        3,\r\n        4\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/div",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"div"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiplication - Tracked and response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.product).to.be.a('number');\r",
+							"    pm.expect(responseJson.product).to.eql(24);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Evi-Tracking-Id",
+						"value": "123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Factors\": [\r\n        1,\r\n        2,\r\n        3,\r\n        4\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/mult",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"mult"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
