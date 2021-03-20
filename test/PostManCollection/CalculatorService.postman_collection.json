@@ -239,7 +239,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Factors\": [\r\n        1,\r\n        2,\r\n        3,\r\n        4\r\n    ]\r\n}",
+					"raw": "{\r\n    \"Factors\": [\r\n        10,\r\n        2,\r\n        3,\r\n        4\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -247,7 +247,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5001/api/v1/calculator/div",
+					"raw": "http://localhost:5001/api/v1/calculator/mult",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -257,7 +257,7 @@
 						"api",
 						"v1",
 						"calculator",
-						"div"
+						"mult"
 					]
 				}
 			},
@@ -314,6 +314,520 @@
 						"v1",
 						"calculator",
 						"mult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Square - Response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.square).to.be.a('number');\r",
+							"    pm.expect(responseJson.square).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Number\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/sqrt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"sqrt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Square - Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 400\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check errors properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.errors).to.have.lengthOf(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Number\": 111111\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/sqrt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"sqrt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Square - Tracked and response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.square).to.be.a('number');\r",
+							"    pm.expect(responseJson.square).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Evi-Tracking-Id",
+						"value": "123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Number\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/sqrt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"sqrt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sub - Response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.difference).to.be.a('number');\r",
+							"    pm.expect(responseJson.difference).to.eql(-4);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Minuend\": 1,\r\n  \"Subtrahend\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/sub",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"sub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sub - Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 400\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check errors properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.errors).to.have.lengthOf(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Minuend\": 100000,\r\n  \"Subtrahend\": 100000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/sub",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"sub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sub - Tracked and response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.difference).to.be.a('number');\r",
+							"    pm.expect(responseJson.difference).to.eql(-4);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Evi-Tracking-Id",
+						"value": "123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Minuend\": 1,\r\n  \"Subtrahend\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/sub",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"sub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sum - Response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.sum).to.be.a('number');\r",
+							"    pm.expect(responseJson.sum).to.eql(19);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Addends\": [\r\n    1,\r\n    4,\r\n    6,\r\n    8\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sum - Tracked and response ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.sum).to.be.a('number');\r",
+							"    pm.expect(responseJson.sum).to.eql(19);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Evi-Tracking-Id",
+						"value": "123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Addends\": [\r\n    1,\r\n    4,\r\n    6,\r\n    8\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sum - Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 400\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check errors properties\", function(){\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.errors).to.have.lengthOf(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Addends\": [\r\n    1,\r\n    4,\r\n    6,\r\n    8,\r\n    1,\r\n    1,\r\n    1,\r\n    1,\r\n    4,\r\n    6,\r\n    8,\r\n    1,\r\n    1,\r\n    111111    \r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query - Get at least 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code equalt to 200\", function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check all properties\", function(){\r",
+							"    const responseJson = pm.response.json();   \r",
+							"    pm.expect(responseJson.operations.length).to.have.above(4);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Id\": 123\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/v1/calculator/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"calculator",
+						"query"
 					]
 				}
 			},
