@@ -47,7 +47,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "U":
-                        WriteLine("Using a traking Id");                        
+                        WriteLine("Using a traking Id", ConsoleColor.Cyan);
                         if (!TryInputInt("trackId", out int trackIdPased))
                             break;
 
@@ -61,7 +61,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "D":
-                        WriteLine("Divide");
+                        WriteLine("Divide", ConsoleColor.Cyan);
                         if (!TryInputInt("dividend", out int dividend))
                             break;
 
@@ -74,7 +74,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "M":
-                        WriteLine("Multiplication");
+                        WriteLine("Multiplication", ConsoleColor.Cyan);
                         if (!TryInputListInt(out List<int> toSend))
                             break;
 
@@ -84,7 +84,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "Q":
-                        WriteLine("Square");
+                        WriteLine("Square", ConsoleColor.Cyan);
                         if (!TryInputInt("number", out int number))
                             break;
                         request = new SqrtRequest() { Number = number };
@@ -93,7 +93,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "S":
-                        WriteLine("Substract");
+                        WriteLine("Substract", ConsoleColor.Cyan);
                         if (!TryInputInt("minuend", out int minuend))
                             break;
 
@@ -106,7 +106,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "A":
-                        WriteLine("Sum");
+                        WriteLine("Sum", ConsoleColor.Cyan);
                         if (!TryInputListInt(out toSend))
                             break;
 
@@ -116,7 +116,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "G":
-                        WriteLine("Query");
+                        WriteLine("Query", ConsoleColor.Cyan);
                         if (!TryInputInt("trackId", out int trackIdToSend))
                             break;
 
@@ -126,7 +126,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "O":
-                        WriteLine("Operations");
+                        WriteLine("Operations", ConsoleColor.Cyan);
                         await GetAndPrint("operations");
 
                         break;
