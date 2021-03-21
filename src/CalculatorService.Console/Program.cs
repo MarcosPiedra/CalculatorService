@@ -42,6 +42,7 @@ namespace CalculatorService.Console
                 {
                     case "R":
                         trackId = null;
+
                         break;
 
                     case "U":
@@ -123,14 +124,18 @@ namespace CalculatorService.Console
 
                     case "I":
                         PrintInfo();
+
                         break;
 
                     case "E":
                         continueOp = false;
+
                         break;
+
                     default:
                         WriteLine("Invalid operation!", ConsoleColor.Red);
                         PrintInfo();
+
                         break;
                 }
             }
@@ -152,7 +157,7 @@ namespace CalculatorService.Console
             WriteLine(@$" {"U".PadRight(padRight, '.')} Using a traking Id");
             WriteLine(@$" {"R".PadRight(padRight, '.')} Reset traking Id");
             WriteLine(@$" {"I".PadRight(padRight, '.')} This operation list");
-            WriteLine(@$" {"E (or CTRL+C)".PadRight(padRight, '.')} Exit");
+            WriteLine(@$" {"E".PadRight(padRight, '.')} Exit");
         }
 
         private static bool TryInputListInt(out List<int> list)
@@ -162,7 +167,7 @@ namespace CalculatorService.Console
             {
                 Write($"Input a list of integer (ie 1,2,3,..): ");
                 var data = ReadLine();
-                list = data.Split(',', System.StringSplitOptions.RemoveEmptyEntries)
+                list = data.Split(',', StringSplitOptions.RemoveEmptyEntries)
                                  .Select(int.Parse)
                                  .Where(d => d > 0)
                                  .ToList();

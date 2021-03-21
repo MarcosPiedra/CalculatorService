@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CalculatorService.Domain
+namespace CalculatorService.CrossCutting
 {
     public interface ITimeProvider
     {

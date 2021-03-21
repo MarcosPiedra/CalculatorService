@@ -1,6 +1,7 @@
 ﻿using CalculatorService.Domain.Models;
 using OperationModel = CalculatorService.Domain.Models.Operation;
 using System.Threading.Tasks;
+using CalculatorService.CrossCutting;
 
 namespace CalculatorService.Domain
 {

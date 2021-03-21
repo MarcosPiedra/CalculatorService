@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Configura
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.WebAPI.Tests.Unit", "src\CalculatorService.WebAPI.Tests.Unit\CalculatorService.WebAPI.Tests.Unit.csproj", "{F60BEA6B-B3DA-405C-B4C7-42EEAC1A2C9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.Console", "src\CalculatorService.Console\CalculatorService.Console.csproj", "{8720159E-C759-403E-A1F0-C78A55F81460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Console", "src\CalculatorService.Console\CalculatorService.Console.csproj", "{8720159E-C759-403E-A1F0-C78A55F81460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.CrossCutting", "CalculatorService.CrossCutting\CalculatorService.CrossCutting.csproj", "{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{8720159E-C759-403E-A1F0-C78A55F81460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8720159E-C759-403E-A1F0-C78A55F81460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8720159E-C759-403E-A1F0-C78A55F81460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

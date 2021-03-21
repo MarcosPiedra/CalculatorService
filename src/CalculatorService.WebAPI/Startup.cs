@@ -1,14 +1,10 @@
 using System;
-using System.Net;
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation.AspNetCore;
 using FluentValidation;
@@ -20,15 +16,15 @@ using CalculatorService.Domain;
 using CalculatorService.Domain.Models;
 using CalculatorService.Domain.Operation;
 using Microsoft.Extensions.Primitives;
-using CalculatorService.WebAPI.DTOs;
-using Newtonsoft.Json;
+using CalculatorService.CrossCutting;
+using CalculatorService.WebAPI.Middleware;
 
 namespace CalculatorService.WebAPI
 {
     public class Startup
     {
         private readonly IConfiguration configuration;
-        private string currentBin;
+        private string binPath;
 
         public Startup(IWebHostEnvironment env)
         {
@@ -37,7 +33,7 @@ namespace CalculatorService.WebAPI
                          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                          .AddEnvironmentVariables();
 
-            currentBin = System.IO.Directory.GetParent(typeof(Program).Assembly.Location).FullName;
+            binPath = System.IO.Directory.GetParent(typeof(Program).Assembly.Location).FullName;
             configuration = builder.Build();
         }
 
@@ -59,7 +55,7 @@ namespace CalculatorService.WebAPI
                 var dbSourceText = "Data Source=";
                 var dbName = connConfig.DatabaseConnection
                                 .Replace(dbSourceText, "", StringComparison.OrdinalIgnoreCase);
-                var binPath = System.IO.Path.Combine(currentBin, dbName);
+                var binPath = System.IO.Path.Combine(this.binPath, dbName);
                 optionsBuilder.UseSqlite($"{dbSourceText}{binPath}");
             }, ServiceLifetime.Transient);
 
@@ -120,9 +116,7 @@ namespace CalculatorService.WebAPI
             return op;
         }
 
-        public void Configure(IApplicationBuilder app,
-                              IWebHostEnvironment env,
-                              ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -133,24 +127,7 @@ namespace CalculatorService.WebAPI
                 app.UseHsts();
             }
 
-            app.UseExceptionHandler(appError =>
-            {
-                appError.Run(async context =>
-                {
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    context.Response.ContentType = "application/json";
-                    string message = $"{context.Request.Path} {context.Request.QueryString} {context.Request.Method}";
-
-                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    if (contextFeature != null)
-                    {
-                        logger.Log(LogLevel.Error, contextFeature.Error, message);
-                        var errorResponse = new ErrorResponse("Internal error", contextFeature.Error.Message, context.Response.StatusCode.ToString());
-                        await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse));
-                    }
-                });
-            });
-
+            app.UseMiddleware<ExceptionHandler>();
             app.UseRouting();
             app.UseEndpoints(e => e.MapControllers());
         }

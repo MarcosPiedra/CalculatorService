@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CalculatorServices.Configurations
+﻿namespace CalculatorServices.Configurations
 {
     public class ConnectionConfiguration
     {
