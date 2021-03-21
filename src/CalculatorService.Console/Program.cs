@@ -136,6 +136,11 @@ namespace CalculatorService.Console
 
                         break;
 
+                    case "I":
+                        PrintInfo();
+
+                        break;
+
                     default:
                         WriteLine("Invalid operation!", ConsoleColor.Red);
 
