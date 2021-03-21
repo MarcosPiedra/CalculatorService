@@ -153,7 +153,7 @@ namespace CalculatorService.Console
 
         private static void PrintInfo()
         {
-            var padRight = 18;
+            var padRight = 6;
             WriteLine(@$"Type a letter to perform a operation:");
             WriteLine(@$" {"D".PadRight(padRight, '.')} Divide");
             WriteLine(@$" {"M".PadRight(padRight, '.')} Multiplication");

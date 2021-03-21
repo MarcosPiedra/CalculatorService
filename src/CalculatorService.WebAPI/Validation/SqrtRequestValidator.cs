@@ -9,7 +9,7 @@ namespace CalculatorServices.WebAPI.Validation
     {
         public SqrtRequestValidator()
         {
-            RuleFor(m => m.Number).LessThanOrEqualTo(10000).WithMessage("The number cannot be greather than 10000").WithErrorCode("3.1");
+            RuleFor(m => m.Number).LessThanOrEqualTo(10000).WithMessage("The number cannot be greater than 10000").WithErrorCode("3.1");
         }
     }
 }

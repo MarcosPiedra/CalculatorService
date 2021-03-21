@@ -9,8 +9,8 @@ namespace CalculatorServices.WebAPI.Validation
     {
         public SubRequestValidator()
         {
-            RuleFor(m => m.Minuend).LessThanOrEqualTo(10000).WithMessage("The minuend cannot be greather than 10000").WithErrorCode("4.1");
-            RuleFor(m => m.Subtrahend).LessThanOrEqualTo(10000).WithMessage("The subtrahend cannot be greather than 10000").WithErrorCode("4.2");
+            RuleFor(m => m.Minuend).LessThanOrEqualTo(10000).WithMessage("The minuend cannot be greater than 10000").WithErrorCode("4.1");
+            RuleFor(m => m.Subtrahend).LessThanOrEqualTo(10000).WithMessage("The subtrahend cannot be greater than 10000").WithErrorCode("4.2");
         }
     }
 }

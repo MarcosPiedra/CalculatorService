@@ -9,8 +9,8 @@ namespace CalculatorServices.WebAPI.Validation
     {
         public SumRequestValidator()
         {
-            RuleFor(m => m.Addends).Must(c => c == null || c.Count <= 9).WithMessage("The number cannot be empty or greather than 9").WithErrorCode("2.1");
-            RuleForEach(m => m.Addends).LessThanOrEqualTo(9).WithMessage("The number of cannot be greather than 9 (index {CollectionIndex})").WithErrorCode("2.2");
+            RuleFor(m => m.Addends).Must(c => c == null || c.Count <= 9).WithMessage("The addends cannot be empty or greater than 9").WithErrorCode("2.1");
+            RuleForEach(m => m.Addends).LessThanOrEqualTo(9).WithMessage("The addends cannot be greater than 9 (index {CollectionIndex})").WithErrorCode("2.2");
         }
     }
 }
