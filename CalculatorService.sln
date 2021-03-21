@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.WebAPI.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorService.Console", "src\CalculatorService.Console\CalculatorService.Console.csproj", "{8720159E-C759-403E-A1F0-C78A55F81460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.CrossCutting", "CalculatorService.CrossCutting\CalculatorService.CrossCutting.csproj", "{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService.CrossCutting", "src\CalculatorService.CrossCutting\CalculatorService.CrossCutting.csproj", "{37B08110-DDE9-4D72-9D42-5B0EE2BA25B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

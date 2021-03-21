@@ -41,11 +41,13 @@ namespace CalculatorService.Console
                 switch (op.ToUpper())
                 {
                     case "R":
+                        WriteLine("Reset traking Id", ConsoleColor.Cyan);
                         trackId = null;
 
                         break;
 
                     case "U":
+                        WriteLine("Using a traking Id");                        
                         if (!TryInputInt("trackId", out int trackIdPased))
                             break;
 
@@ -59,6 +61,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "D":
+                        WriteLine("Divide");
                         if (!TryInputInt("dividend", out int dividend))
                             break;
 
@@ -71,6 +74,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "M":
+                        WriteLine("Multiplication");
                         if (!TryInputListInt(out List<int> toSend))
                             break;
 
@@ -80,6 +84,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "Q":
+                        WriteLine("Square");
                         if (!TryInputInt("number", out int number))
                             break;
                         request = new SqrtRequest() { Number = number };
@@ -88,6 +93,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "S":
+                        WriteLine("Substract");
                         if (!TryInputInt("minuend", out int minuend))
                             break;
 
@@ -100,6 +106,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "A":
+                        WriteLine("Sum");
                         if (!TryInputListInt(out toSend))
                             break;
 
@@ -109,6 +116,7 @@ namespace CalculatorService.Console
                         break;
 
                     case "G":
+                        WriteLine("Query");
                         if (!TryInputInt("trackId", out int trackIdToSend))
                             break;
 
@@ -118,12 +126,8 @@ namespace CalculatorService.Console
                         break;
 
                     case "O":
+                        WriteLine("Operations");
                         await GetAndPrint("operations");
-
-                        break;
-
-                    case "I":
-                        PrintInfo();
 
                         break;
 
@@ -134,7 +138,6 @@ namespace CalculatorService.Console
 
                     default:
                         WriteLine("Invalid operation!", ConsoleColor.Red);
-                        PrintInfo();
 
                         break;
                 }
@@ -259,7 +262,7 @@ namespace CalculatorService.Console
                 };
                 httpRequestMessage.Headers.Add(HttpRequestHeader.Accept.ToString(), "application/json");
 
-                WriteLine($"Operation: {method}", ConsoleColor.Yellow);
+                WriteLine($"Method: {method}", ConsoleColor.Yellow);
                 WriteLine("Sending...", ConsoleColor.Yellow);
 
                 var response = await client.SendAsync(httpRequestMessage);

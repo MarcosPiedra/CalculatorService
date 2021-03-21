@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CalculatorService.WebAPI\CalculatorService.WebAPI.csproj" />
+    <ProjectReference Include="..\CalculatorService.CrossCutting\CalculatorService.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>
